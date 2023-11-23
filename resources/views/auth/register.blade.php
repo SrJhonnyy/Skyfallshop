@@ -16,14 +16,7 @@
         <h1>SkyFall Anime Store</h1>
         <div class="contenedor">
             
-            <div class="input-contenedor">
-                <select name="tipo_di_id" id="tipo_di_id" required>
-                    <option value="">Selecciona un tipo de Documento</option>
-                    @foreach($tiposDI as $tipoDI)
-                        <option value="{{ $tipoDI->id }}">{{ $tipoDI->tipo_di }}</option>
-                    @endforeach
-                </select>
-            </div>
+
             
             <div class="input-contenedor">
                 <i class="fas fa-envelope icon"></i>

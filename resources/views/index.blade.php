@@ -83,6 +83,8 @@
 				</div>
         </div>
 
+
+
     </header>
 
     <!--login form container-->
@@ -163,6 +165,61 @@
         </div>
     </section>
     <!-- book section ends-->
+
+    <!-- packages section stars-->
+
+    <section class="packages" id="packages">
+
+        <h1 class="heading">
+            <span>P</span>
+            <span>R</span>
+            <span>O</span>
+            <span>D</span>
+            <span>U</span>
+            <span>C</span>
+            <span>T</span>
+            <span>O</span>
+            <span>S</span>
+        </h1>
+
+        <div class="box-container">
+    @foreach($products as $product)
+        <div class="box">
+            @php
+                $imagen = asset("img/venta/{$product->id}/principal.jpg");
+            @endphp
+
+            <img src="{{ $imagen }}" alt="{{ $product->nombre }}">
+
+            <div class="content">
+                <h3> <i class="fa fa-ticket"></i><?php echo e($product->nombre); ?></h3>
+                <p class="text-justify"><?php echo e($product->descripcion); ?></p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="price">$ <?php echo e($product->valor_unitario); ?> &nbsp;<span> $ <?php echo e($product->valor_unitario* 1.2); ?></span></div>
+
+                <!-- Botón "Agregar al carrito" -->
+                <button class="btn btn-add-to-cart"
+        data-product-id="{{ $product->id }}"
+        data-product-imagen="{{ $imagen }}"
+        data-product-titulo="{{ $product->nombre }}"
+        data-product-descripcion="{{ $product->descripcion }}"
+        data-product-precio="{{ $product->valor_unitario }}">
+    Agregar al carrito
+</button>
+
+            </div>
+        </div>
+    @endforeach
+</div>
+
+<script src="{{ asset('js/carrito.js') }}"></script>
+
 
     </section>
 
@@ -422,8 +479,11 @@
 
 
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="{{ asset('js/script.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script src="{{ asset('js/script.js') }}"></script>
+<script src="{{ asset('js/carrito.js') }}"></script>
+
+
 
 </body>
 

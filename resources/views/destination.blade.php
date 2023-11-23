@@ -120,6 +120,35 @@
 
     </section>
 
+
+    <!-- packages section stars-->
+
+    <section class="packages" id="packages">
+
+        <h1 class="heading">   
+        </h1>
+<!-- packages section ends-->
+
+<div class="box-container">
+    @foreach ($products as $product)
+        <div class="box">
+            <!-- ... Tu código de presentación de productos ... -->
+            <button class="btn btn-add-to-cart"
+                    data-product-id="{{ $product->id }}"
+                    data-product-name="{{ $product->nombre }}"
+                    data-product-price="{{ $product->valor_unitario }}"
+                    data-product-description="{{ $product->descripcion }}">
+                Agregar al carrito
+            </button>
+        </div>
+    @endforeach
+</div>
+
+<script src="{{ asset('js/carrito.js') }}"></script>
+
+
+    </section>
+
     <!--gallery section star-->
     <section class="gallery" id="gallery">
         <h1 class="heading">
@@ -252,10 +281,14 @@
     </section>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-    <script src="{{ asset('js/script.js') }}"></script>
-    <script src="{{ asset('js/carrito.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script src="{{ asset('js/script.js') }}"></script>
+<script src="{{ asset('js/carrito.js') }}"></script>
+
+
+
 
 </body>
 

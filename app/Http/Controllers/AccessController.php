@@ -18,11 +18,12 @@ class AccessController extends Controller
 {
     public function index(){
         $products = Product::all();
-
+    
         return view('index', [
-            'products'=>$products
+            'products' => $products,
         ]);
     }
+    
 
     public function destination($id){
         $product = Product::find($id);
@@ -138,7 +139,6 @@ class AccessController extends Controller
         $usuario->telefono = $inputs['telefono'];
         $usuario->correo = $inputs['correo'];
         $usuario->contrasena = $inputs['contrasena'];
-        $usuario->tipo_di_id = $inputs['tipo_di_id'];
         $usuario->ciudad_id = $inputs['ciudad_id'];
         $usuario->estado_id = 1;
         $usuario->save();
