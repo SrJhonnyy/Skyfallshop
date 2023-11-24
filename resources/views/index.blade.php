@@ -26,6 +26,7 @@
         <nav class="navbar">
             <a href="#home">Inicio</a>
             <a href="#book">Escribenos</a>
+            <a href="#packages">Prodcutos</a>
             <a href="#services">Servicios</a>
             <a href="#gallery">Galeria</a>
             <a href="#review">Comentarios</a>
@@ -82,8 +83,6 @@
 					<p id="carrito-vacio" class="cart-empty">El carrito está vacío</p>
 				</div>
         </div>
-
-
 
     </header>
 
@@ -461,16 +460,16 @@
             <div class="box">
                 <h3>Acceso Rapido</h3>
                 <a href="#">Inicio</a>
-                <a href="#">Paquetes</a>
-                <a href="#">Servicios</a>
-                <a href="#">Galeria</a>
-                <a href="#">Comentarios</a>
+                <a href="#packages">Productos</a>
+                <a href="#services">Servicios</a>
+                <a href="#gallery">Galeria</a>
+                <a href="#review">Comentarios</a>
 
             </div>
             <div class="box">
                 <h3>Siguenos</h3>
-                <a href="#">facebook</a>
-                <a href="#">instagram</a>
+                <a href="{{ url('https://www.facebook.com/')}}">facebook</a>
+                <a href="{{ url('https://www.instagram.com/skyfall_anime/')}}">instagram</a>
                 <a href="#">twitter</a>
             </div>
         </div>
@@ -479,11 +478,8 @@
 
 
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-<script src="{{ asset('js/script.js') }}"></script>
-<script src="{{ asset('js/carrito.js') }}"></script>
-
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
 
 </body>
 

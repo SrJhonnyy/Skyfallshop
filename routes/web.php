@@ -19,3 +19,13 @@ Route::get('/logout', [AccessController::class, 'logout'])->name('auth.logout');
 
 //compra
 Route::get('/compra', [AccessController::class, 'compra'])->name('compra');
+
+//Imagen de perfil
+
+Route::get('/formulario-imagen', [ImagenController::class, 'mostrarFormulario'])->name('nombre_de_tu_ruta_para_mostrar_formulario');
+Route::post('/guardar-imagen', [ImagenController::class, 'guardarImagen'])->name('guardar.imagen');
+
+// routes/web.php
+
+
+Route::get('/compra/{idCompra}', 'CompraController@mostrarCompra');

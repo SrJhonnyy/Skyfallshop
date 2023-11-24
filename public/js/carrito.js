@@ -1,4 +1,4 @@
-// Manejo de eventos para agregar productos al carrito
+
 const btnsAddToCart = document.querySelectorAll('.btn-add-to-cart');
 
 btnsAddToCart.forEach(btn => {
@@ -38,8 +38,11 @@ btnsAddToCart.forEach(btn => {
 // Manejo de eventos para eliminar productos del carrito
 $(document).on('click', '.delete-item', function (elem) {
     // Decrementar el contador.
+    elem.stopPropagation();
+
     countProductsCart = countProductsCart - 1;
     countProducts.innerHTML = countProductsCart;
+
 
     // Obtener el índice del producto en el carrito.
     var id = elem.target.getAttribute('data-item');
@@ -67,23 +70,24 @@ $(document).on('click', '.delete-item', function (elem) {
         document.querySelector('#carrito-vacio').classList.remove('hidden');
         FullCart.classList.add('hidden');
     }
+    listItemsCart();
+
+    return false;
+
+});
+
+// Evitar que la vista del carrito se cierre al hacer clic en cualquier lugar dentro de ella
+$('#carrito').on('click', function (e) {
+    e.stopPropagation();
+});
+
+// Cerrar la vista del carrito al hacer clic en cualquier lugar fuera de ella
+$(document).on('click', function () {
+    // Cerrar la vista del carrito aquí
     // ...
 
-// Manejo de eventos para reiniciar el carrito
-document.getElementById('reset-cart-btn').addEventListener('click', function () {
-    console.log('Botón "Reiniciar Carrito" hace clic');
+    // Asegurarse de que la vista del carrito esté cerrada
+    // ...
 
-    countProductsCart = 0;
-    countProducts.innerHTML = countProductsCart;
-
-    // Limpiar el contenido del carrito
-    contentCart = [];
-
-    // Limpiar y actualizar el almacenamiento local con el carrito vacío
-    localStorage.clear();
-    localStorage.setItem('cart', JSON.stringify(contentCart));
-
-    // Actualizar la vista del carrito
-    listItemsCart();
-});
+    // O cualquier otro código que necesites ejecutar cuando se hace clic fuera del carrito
 });

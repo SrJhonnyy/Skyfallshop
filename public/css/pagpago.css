@@ -1,128 +1,191 @@
-.seccion-perfil-usuario{
-  align-items: center;
-  display: flex;
-  justify-content: center;
+/* Reset de márgenes y padding por defecto */
+body, h1, h2, h3, p, ul {
+    margin: 0;
+    padding: 0;
 }
-.seccion-perfil-usuario .perfil-usuario-body {
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('/img/Hola.png'); /* Ruta relativa a la carpeta 'public' */
+    background-size: cover;
+    background-position: center;
+    margin: 0; /* Añade esto para eliminar los márgenes predeterminados del cuerpo */
+}
+
+.seccion-perfil-usuario {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    padding: 20px; /* Añade algún espacio de relleno para separar del borde */
+}
+
+.perfil-usuario-body {
     width: 70%;
-    position: relative;
     max-width: 750px;
+    position: relative;
 }
 
-.seccion-perfil-usuario .perfil-usuario-body .titulo {
-    display: block;
-    width: 100%;
-    font-size: 1.75em;
-    margin-bottom: 0.5rem;
-}
-
-.seccion-perfil-usuario .perfil-usuario-body .texto {
-    color: #848484;
-    font-size: 0.95em;
-}
-.seccion-perfil-usuario .perfil-usuario-footer,
-.seccion-perfil-usuario .perfil-usuario-bio {
+.perfil-usuario-bio,
+.perfil-usuario-footer {
+    justify-content: center;
     display: flex;
     flex-wrap: wrap;
     padding: 1.5rem 2rem;
-    box-shadow: 0 0 12px rgba(0, 0, 0, .2);
-    background-color: #f6f1fc;
     border-radius: 15px;
-    width: 100%;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+    background-color: #65e5ff;
+    margin-bottom: 1.25rem;
 }
 
-.seccion-perfil-usuario .perfil-usuario-bio {
-    margin-bottom: 1.25rem;
+.titulo {
+    font-size: 1.75em;
+    margin-bottom: 0.5rem;
     text-align: center;
 }
 
-.seccion-perfil-usuario .lista-datos {
+.texto {
+    color: #ff0000;
+    font-size: 1.5em;
+}
+
+.lista-datos {
     width: 50%;
     list-style: none;
 }
 
-.seccion-perfil-usuario .lista-datos li {
+.lista-datos li {
     padding: 5px 0;
 }
+
+/* Estilos para el botón "Regresar" */
 .cta {
- position: relative;
- margin: auto;
- padding: 12px 18px;
- transition: all 0.2s ease;
- border: none;
- background: none;
- text-decoration: none;
+    position: relative;
+    margin: auto;
+    padding: 12px 18px;
+    transition: all 0.2s ease;
+    border: 2px solid #e14949; /* Cambia el borde a un color que contraste con el fondo */
+    border-radius: 5px; /* Añade esquinas redondeadas */
+    background-color: #ffffff; /* Fondo blanco */
+    text-decoration: none; /* Evita el subrayado */
+    color: #9d7cc9; /* Color del texto */
 }
 
-.cta:before {
- content: "";
- position: absolute;
- top: 0;
- left: 0;
- display: block;
- border-radius: 50px;
- background: #9d7cc9;
- width: 45px;
- height: 45px;
- transition: all 0.3s ease;
-}
 
-.cta span {
- position: relative;
- font-family: "Ubuntu", sans-serif;
- font-size: 18px;
- font-weight: 700;
- letter-spacing: 0.05em;
- color: #68688d;
+.cta:hover {
+    color: #ff0000; /* Cambia el color del texto al pasar el mouse */
 }
 
 .cta svg {
- position: relative;
- top: 0;
- margin-left: 10px;
- fill: none;
- stroke-width: 2;
- transform: translateX(-4px);
- transition: all 0.3s ease;
-}
-
-.cta:hover:before {
- width: 100%;
- background: #8e88e1;
+    position: relative;
+    top: 0;
+    margin-left: 10px;
+    fill: #ff9d00; /* Color del icono */
+    stroke-width: 2;
+    transform: translateX(-4px);
+    transition: all 0.3s ease;
 }
 
 .cta:hover svg {
- transform: translateX(0);
+    fill: #ff0000; /* Cambia el color del icono al pasar el mouse */
 }
+
 
 .cta:active {
- transform: scale(0.95);
-}
-.texto{
-    color:#030303!important;
-}
-.content-detail{
-    align-items: flex-start;
-    display: flex;
-    justify-content: center;
-    width: 100%;
+    transform: scale(0.95);
 }
 
-.content-detail > div:nth-child(1){
-    width: 41%;
-}
-
-.content-detail > div:nth-child(2){
-    width: 59%;
-}
-.packages .box-container {
+/* Nuevos estilos para los productos */
+#cnt-paquetes {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 1rem;
 }
-.packages .box-container .box {
-    flex: 1 1 30rem;
+
+
+.box img {
+    width: 150%;
+    height: auto;
+    border-radius: 0.5rem 0.5rem 0 0;
+
+}
+
+.box {
+    flex: 1 1 calc(50% - 1rem); /* Ajusta según sea necesario */
     border-radius: 0.5rem;
     overflow: hidden;
     box-shadow: 0 1rem 2rem rgba(168, 132, 252, 0.171);
+    margin-bottom: 1rem;
+    background-color: #ffffff; /* Fondo sólido para cada caja de producto */
+
+
+}
+
+.content {
+    padding: 1rem;
+}
+
+.precio-producto-carrito {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+#total-pagar {
+    font-size: 1.2em;
+    color: #333;
+    margin-top: 1rem;
+}
+
+#total-pagar-container {
+    background-color: #f6f1fc;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+
+}
+
+/* Estilos para la sección de datos de compra */
+.perfil-usuario-footer-container {
+    position: relative;
+    margin-top: 20px; /* Ajusta el valor según sea necesario para dar el espacio deseado */
+}
+
+
+.perfil-usuario-footer {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1.5rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+    margin-bottom: 1.25rem;
+}
+
+.perfil-usuario-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background-color: #f6f1fc; /* Fondo sólido para la sección de datos de compra */
+    z-index: -1;
+}
+
+
+/* Estilos para el botón de finalizar compra */
+.finalizar-compra {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #ff3300;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.finalizar-compra:hover {
+    background-color: #68688d;
 }

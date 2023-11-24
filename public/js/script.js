@@ -177,7 +177,42 @@ if (myCart == null) {
 
     // Actualizar la vista del carrito
     listItemsCart();
-}
 
 // Actualizar el contador de productos
 countProducts.innerHTML = countProductsCart;
+
+}
+// Modifica la función cargarPortada en tu archivo script.js
+function cargarPortada(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            // Obtén la referencia a la imagen
+            var portadaImg = document.getElementById('portada-img');
+
+            // Establece el atributo src de la imagen con la ruta de datos de la imagen cargada
+            portadaImg.src = e.target.result;
+
+            // Ajusta el tamaño máximo de la imagen
+            portadaImg.style.maxWidth = '100%'; // Puedes ajustar este valor según tus necesidades
+
+            // Puedes agregar más lógica aquí, si es necesario
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+function cargarAvatar(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            document.getElementById('avatar-img').src = e.target.result;
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+

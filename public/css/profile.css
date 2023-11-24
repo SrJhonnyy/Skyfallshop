@@ -1,3 +1,4 @@
+
 .seccion-perfil-usuario .perfil-usuario-body,
 .seccion-perfil-usuario {
     display: flex;
@@ -11,7 +12,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    background: linear-gradient(#59249e, transparent);
+    background: linear-gradient(#9e2424, transparent);
     margin-bottom: 1.25rem;
 }
 
@@ -20,8 +21,16 @@
     position: relative;
     width: 90%;
     height: 17rem;
-    background-image: linear-gradient(45deg, #a233df, #3e76d1);
-    border-radius: 0 0 20px 20px;
+    max-height: 400px;
+    overflow: hidden; /* Añade esto para recortar cualquier contenido que exceda el tamaño máximo */
+}
+
+.seccion-perfil-usuario .perfil-usuario-portada img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center; /* Añade esto para asegurar que la imagen se centre */
+    border-radius: 0 0 20px 20px; /* Mantén el radio de borde para las esquinas inferiores */
 }
 
 .seccion-perfil-usuario .perfil-usuario-portada .boton-portada {
@@ -36,8 +45,17 @@
     cursor: pointer;
 }
 
+
 .seccion-perfil-usuario .perfil-usuario-portada .boton-portada i {
     margin-right: 1rem;
+}
+
+.seccion-perfil-usuario .perfil-usuario-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+
 }
 
 .seccion-perfil-usuario .perfil-usuario-avatar {
@@ -51,36 +69,39 @@
     border-radius: 50%;
     box-shadow: 0 0 12px rgba(0, 0, 0, .2);
     position: absolute;
-    bottom: -40px;
+    bottom: 40px;
     left: calc(50% - 90px);
     z-index: 1;
-    width: 260px;
-    object-fit: cover;
+
 }
 
-.seccion-perfil-usuario .perfil-usuario-avatar img {
-    width: 100%;
-    position: relative;
-    border-radius: 50%;
-}
 
 .seccion-perfil-usuario .perfil-usuario-avatar .boton-avatar {
     position: absolute;
     left: -2px;
     top: -2px;
     border: 0;
-    background-color: #fff;
-    box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+    background-color: rgba(0, 0, 0, .5);
+    color: #fff;
     width: 45px;
     height: 45px;
     border-radius: 50%;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.seccion-perfil-usuario .perfil-usuario-avatar .boton-avatar i {
+    font-size: 20px; /* Ajusta el tamaño del icono según tus necesidades */
+}
+
 
 .seccion-perfil-usuario .perfil-usuario-body {
     width: 70%;
     position: relative;
     max-width: 750px;
+
 }
 
 .seccion-perfil-usuario .perfil-usuario-body .titulo {
@@ -95,48 +116,62 @@
     font-size: 0.95em;
 }
 
-.seccion-perfil-usuario .perfil-usuario-footer,
-.seccion-perfil-usuario .perfil-usuario-bio {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 1.5rem 2rem;
-    box-shadow: 0 0 12px rgba(0, 0, 0, .2);
-    background-color: #fff;
-    border-radius: 15px;
-    width: 100%;
-}
-
-.seccion-perfil-usuario .perfil-usuario-bio {
-    margin-bottom: 1.25rem;
-    text-align: center;
-}
-
-.seccion-perfil-usuario .lista-datos {
-    width: 50%;
-    list-style: none;
-}
-
-.seccion-perfil-usuario .lista-datos li {
-    padding: 5px 0;
-}
-
-.seccion-perfil-usuario .lista-datos li>.icono {
-    margin-right: 1rem;
-    font-size: 1.2rem;
-    vertical-align: middle;
+.seccion-perfil-usuario .perfil-usuario-body,
+.seccion-perfil-usuario .perfil-usuario-bio,
+.seccion-perfil-usuario .perfil-usuario-footer {
+    width: 70%;
+    margin: 0 auto; /* Centra horizontalmente */
+    text-align: center; /* Centra el texto dentro de estos elementos */
 }
 
 .seccion-perfil-usuario .redes-sociales {
     position: absolute;
-    right: calc(0px - 50px - 1rem);
-    top: 0;
+    right: 2%;
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
+
+.cerrar-sesion-btn {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Ajusta según sea necesario para alinear el botón correctamente */
+
+}
+
+/* Ajustes para el botón de regresar */
+.boton-regresar {
+    display: none; /* Si quieres ocultar el botón de regresar, puedes dejar esto así */
+}
+
+/* adactacion a dispositivos */
+@media (max-width: 750px) {
+    .seccion-perfil-usuario .perfil-usuario-portada,
+    .seccion-perfil-usuario .perfil-usuario-body,
+    .seccion-perfil-usuario .perfil-usuario-bio,
+    .seccion-perfil-usuario .perfil-usuario-footer,
+    .seccion-perfil-usuario .redes-sociales {
+        width: 95%;
+    }
+
+    .seccion-perfil-usuario .redes-sociales {
+        right: 0;
+    }
+
+    .seccion-perfil-usuario .redes-sociales .boton-redes+.boton-redes {
+        margin-left: 1rem;
+        margin-top: 0;
+    }
+}
+
 
 .seccion-perfil-usuario .redes-sociales .boton-redes {
     border: 0;
-    background-color: #fff;
+    background-color: #ffffff;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
@@ -176,7 +211,7 @@ button {
     transition: all 0.2s linear;
     cursor: pointer;
     border: none;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     font-size: 20px;
    }
    
@@ -203,6 +238,8 @@ button {
     }
 
     .seccion-perfil-usuario .perfil-usuario-portada,
+
+
     .seccion-perfil-usuario .perfil-usuario-body {
         width: 95%;
     }
@@ -263,3 +300,8 @@ button {
     width: 3rem;
   }
   /* Estilos para el contenedor del perfil */
+
+  .btn1.boton-regresar {
+    display: none;
+}
+

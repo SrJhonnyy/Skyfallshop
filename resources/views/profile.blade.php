@@ -11,22 +11,46 @@
     <title>Profile</title>
 </head>
 <body>
-    <!--==========================
-=            html            =
-===========================-->
-<button>
-    <svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024"><path d="M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z"></path></svg>
-    <span><a href="{{ url('/') }}">Regresar</a></span>
-  </button>
+    <button>
+        <svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024">
+            <path d="M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z"></path>
+        </svg>
+        <a href="{{ url('/') }}" class="btn1"><i class="fas fa-arrow-left"></i></a>
+    </button>
 
     <section class="seccion-perfil-usuario">
         <div class="perfil-usuario-header">
+            <!-- ... -->
+            <!-- Agrega este código dentro del div con la clase "perfil-usuario-portada" -->
             <div class="perfil-usuario-portada">
-                <div class="perfil-usuario-avatar">
-                    <img src="{{ asset('img/perfil/'.'/'.$usuario->imagen) }}">
-                </div>
-                
-            </div>
+    <!-- Botón de edición para la portada -->
+
+
+    <!-- Nuevo input para la portada -->
+    <label for="input-portada" class="boton-portada">
+        <i class="fas fa-edit"></i>
+    </label>
+    <input type="file" id="input-portada" style="display: none" accept="*/*" onchange="cargarPortada(this)">
+<!-- Agrega el id "portada-img" a la etiqueta de imagen -->
+<img id="portada-img" src="{{ asset('ruta/de/tu/portada') }}" style="max-width: 100%;">
+
+
+<div class="perfil-usuario-avatar">
+    <form action="{{ route('guardar.imagen') }}" method="post" enctype="multipart/form-data">
+        @csrf
+        <label for="input-avatar" class="boton-avatar">
+            <i class="fas fa-edit"></i>
+            <input type="file" id="input-avatar" name="imagen" style="display: none" accept="image/*" onchange="cargarAvatar(this)">
+        </label>
+        <button type="submit" style="display: none" id="submit-avatar">Guardar</button>
+    </form>
+    <img id="avatar-img" src="{{ asset('img/perfil/'.'/'.$usuario->imagen) }}">
+</div>
+
+  
+    </section>
+
+    </div>
         </div>
         <div class="perfil-usuario-body">
             <div class="perfil-usuario-bio">
@@ -50,13 +74,9 @@
         </div>
     </section>
 
-        
+
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-<script src="{{ asset('js/script.js') }}"></script>
-<script src="{{ asset('js/carrito.js') }}"></script>
-
-
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
 </body>
 </html>

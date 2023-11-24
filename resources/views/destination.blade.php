@@ -24,7 +24,7 @@
 
         <nav class="navbar">
             <a href="{{ url('/')}}">Inicio</a>
-            <a href="{{ url('/')}}">Paquetes</a>
+            <a href="#packages">Paquetes</a>
             <a href="#services">Servicios</a>
             <a href="#gallery">Galeria</a>
             <a href="#review">Comentarios</a>
@@ -281,14 +281,10 @@
     </section>
 
 
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-<script src="{{ asset('js/script.js') }}"></script>
-<script src="{{ asset('js/carrito.js') }}"></script>
-
-
-
+    <script src="{{ asset('js/script.js') }}"></script>
+    <script src="{{ asset('js/carrito.js') }}"></script>
 
 </body>
 

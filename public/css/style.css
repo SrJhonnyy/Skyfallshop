@@ -652,7 +652,7 @@ header .search-bar-container label:hover{
     top: 55%;
     right: 0;
 
-    background-color: #921d1b;
+    background-color: hsl(0, 98%, 58%);
     color: #fff;
     width: 25px;
     height: 25px;
